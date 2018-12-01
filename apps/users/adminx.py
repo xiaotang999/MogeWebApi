@@ -7,6 +7,16 @@ from django.utils.translation import ugettext as _
 from xadmin.views import ListAdminView
 
 from .models import UserGroup, UserProfile
+from xadmin.views import ListAdminView
+
+
+class GlobalSetting(object):
+    """后台全局设置"""
+    site_title = "网站管理"
+    site_footer = "网站管理"
+    menu_style = 'accordion'
+
+xadmin.site.register(views.CommAdminView, GlobalSetting)
 
 class UserProfileAdmin(UserAdmin):
     list_display = ('nick_name', 'username', 'group')

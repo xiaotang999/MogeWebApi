@@ -29,7 +29,7 @@ SECRET_KEY = '=*_ysuou3xblip&o!o%a&r7#=^qx%un_%jin!00s_!7h^xudy@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'users.UserProfile'
 
@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'imagekit', # 压缩图片
-    'zl955.apps.Zl955Config',
+    # 'zl955.apps.Zl955Config',
     'pk10.apps.Pk10Config',
     'users.apps.UsersConfig',
     'django_filters',
@@ -80,7 +80,7 @@ ROOT_URLCONF = 'MogeWebApi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -152,6 +152,9 @@ AUTHENTICATION_BACKENDS = (
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 MEDIA_URL = "/media/"
 

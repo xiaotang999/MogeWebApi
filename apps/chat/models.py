@@ -52,18 +52,18 @@ class ChatUser(models.Model):
     def __str__(self):
         return self.user.username
 
-class ChatMsg(models.Model):
-    """
-    聊天信息: 房间名,会员名,信息内容,时间
-    """
-    room = models.ForeignKey(ChatRoom, verbose_name="房间名")
-    user = models.ForeignKey(User, verbose_name="用户名")
-    msgs = models.TextField(default="", verbose_name='聊天消息')
-    add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
+# class ChatMsg(models.Model):
+#     """
+#     聊天信息: 房间名,会员名,信息内容,时间
+#     """
+#     room = models.ForeignKey(ChatRoom, verbose_name="房间名")
+#     user = models.ForeignKey(User, verbose_name="用户名")
+#     msgs = models.TextField(default="", verbose_name='聊天消息')
+#     add_time = models.DateTimeField(default=datetime.now, verbose_name="添加时间")
 
-    class Meta:
-        verbose_name = "聊天信息"
-        verbose_name_plural = verbose_name
+#     class Meta:
+#         verbose_name = "聊天信息"
+#         verbose_name_plural = verbose_name
 
-    def __str__(self):
-        return self.user.username
+#     def __str__(self):
+#         return self.user.username

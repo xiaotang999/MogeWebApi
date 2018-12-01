@@ -17,13 +17,13 @@ from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.authentication import SessionAuthentication
 from utils.permissions import IsOwnerOrReadOnly
 
-from .models import ChatRoom, ChatUser, ChatMsg
+from .models import ChatRoom, ChatUser
 from .serializers import ChatRoomSerializer,ChatUserSerializer
 from .filters import ChatRoomFilter,ChatUserFilter
 
 class ChatRoom_ListViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
-    permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
-    authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+    # permission_classes = (IsAuthenticated, IsOwnerOrReadOnly)
+    # authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
 
     queryset = ChatRoom.objects.order_by('-id')
     serializer_class = ChatRoomSerializer

@@ -8,7 +8,7 @@ from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views
 from rest_framework_jwt.views import obtain_jwt_token
 
-from zl955.views import SettingsListViewSet, GuanggaosListViewSet
+# from zl955.views import SettingsListViewSet, GuanggaosListViewSet
 from pk10.views import Pk10_Open_ListViewSet, Pk10_Req, Pk10_Open_New_ListViewSet
 from users.views import UserViewset
 from chat.views import ChatRoom_ListViewSet, ChatUser_ListViewSet
@@ -16,8 +16,8 @@ from chat.views import ChatRoom_ListViewSet, ChatUser_ListViewSet
 
 router = DefaultRouter()
 # 配置api.路由
-router.register(r'api/settings', SettingsListViewSet)
-router.register(r'api/abb', GuanggaosListViewSet)
+# router.register(r'api/settings', SettingsListViewSet)
+# router.register(r'api/abb', GuanggaosListViewSet)
 router.register(r'api/pk10/open', Pk10_Open_ListViewSet, base_name="pk10_open")
 router.register(r'api/pk10/news', Pk10_Open_New_ListViewSet, base_name="pk10_news")
 
@@ -26,6 +26,8 @@ router.register(r'api/users', UserViewset, base_name="register")
 router.register(r'api/room', ChatRoom_ListViewSet, base_name="room")
 router.register(r'api/roomusers', ChatUser_ListViewSet, base_name="roomusers")
 
+
+from django.views.generic import TemplateView
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -47,11 +49,7 @@ urlpatterns = [
     
     url(r'^api/pk10/req', Pk10_Req.as_view(),name='pk10_req'),
 
-    # url(r'^room', goRoomViewset.as_view(),name='room'),
-    
-
-    # url(r'^api/pk10/test', Pk10_test.as_view(),name='pk10_test'),
-    # url(r'^chat/', include('chat.urls')),    
+    url(r'^index/', TemplateView.as_view(template_name="index.html"), name="index"),
 
     url(r'^', include(router.urls)),
 ]
