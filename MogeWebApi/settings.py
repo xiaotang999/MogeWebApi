@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 SECRET_KEY = '=*_ysuou3xblip&o!o%a&r7#=^qx%un_%jin!00s_!7h^xudy@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -102,7 +102,7 @@ WSGI_APPLICATION = 'MogeWebApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mogewebapi',
+        'NAME': 'mogewebapi5',
         'USER': 'root',
         'PASSWORD': 'root',
         # 'HOST': '127.0.0.1',

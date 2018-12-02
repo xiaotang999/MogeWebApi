@@ -21,7 +21,7 @@ class ChatRoom(models.Model):
     # online = models.CharField(max_length=100, verbose_name='在线人数', default="0")
     url =  models.CharField(max_length=20, verbose_name='聊天地址',  default=randomURL)
     avatar = ProcessedImageField(upload_to='chat/room/avatar/%Y/%m',
-                                        default="chat/room/avatar/default.png",
+                                        default="chat/room/avatar/default.jpg",
                                         null=True,
                                         blank=True, 
                                         format='JPEG',

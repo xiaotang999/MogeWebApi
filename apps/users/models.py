@@ -51,7 +51,7 @@ class UserProfile(AbstractUser):
     gender = models.CharField(max_length=6, choices=(("male", u"男"), ("female", "女")), default="female", verbose_name="性别")
     mobile = models.CharField(null=True, blank=True, max_length=11, verbose_name="电话")
     avatar = ProcessedImageField(upload_to='users/avatar/%Y/%m',
-                                        default="users/avatar/default.png",
+                                        default="users/avatar/default.jpg",
                                         null=True,
                                         blank=True, 
                                         format='JPEG',

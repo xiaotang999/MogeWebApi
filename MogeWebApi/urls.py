@@ -18,13 +18,13 @@ router = DefaultRouter()
 # 配置api.路由
 # router.register(r'api/settings', SettingsListViewSet)
 # router.register(r'api/abb', GuanggaosListViewSet)
-router.register(r'pk10/open', Pk10_Open_ListViewSet, base_name="pk10_open")
-router.register(r'pk10/news', Pk10_Open_New_ListViewSet, base_name="pk10_news")
+router.register(r'api/pk10/open', Pk10_Open_ListViewSet, base_name="pk10_open")
+router.register(r'api/pk10/news', Pk10_Open_New_ListViewSet, base_name="pk10_news")
 
-router.register(r'users', UserViewset, base_name="register")
+router.register(r'api/users', UserViewset, base_name="register")
 
-router.register(r'room', ChatRoom_ListViewSet, base_name="room")
-router.register(r'roomusers', ChatUser_ListViewSet, base_name="roomusers")
+router.register(r'api/room', ChatRoom_ListViewSet, base_name="room")
+router.register(r'api/roomusers', ChatUser_ListViewSet, base_name="roomusers")
 
 
 from django.views.generic import TemplateView
@@ -49,7 +49,7 @@ urlpatterns = [
     
     url(r'^api/pk10/req', Pk10_Req.as_view(),name='pk10_req'),
 
-    url(r'^', TemplateView.as_view(template_name="index.html"), name="index"),
-
-    url(r'^api/', include(router.urls)),
+    url(r'^index/', TemplateView.as_view(template_name="index.html"), name="index"),
+    #url(r'^api/', include(router.urls)),
+    url(r'^', include(router.urls)),
 ]
