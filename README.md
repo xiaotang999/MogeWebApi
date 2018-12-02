@@ -16,7 +16,7 @@ mkdir apps media static templates extra_apps
 python manage.py startapp xxx
 ```
 
-
+docker inspect redismaster 
 
 ```
 # 同步数据库
