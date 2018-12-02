@@ -27,7 +27,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 SECRET_KEY = '=*_ysuou3xblip&o!o%a&r7#=^qx%un_%jin!00s_!7h^xudy@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -102,11 +102,12 @@ WSGI_APPLICATION = 'MogeWebApi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mogewebapi5',
+        'NAME': 'mogewebapi',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
-        'PORT': '5000',
+        # 'HOST': '127.0.0.1',
+        'HOST': '172.17.0.2',
+        'PORT': '3306',
         'OPTIONS': { 'init_command': 'SET default_storage_engine=INNODB;'} # mysql5.6需要
     }
 }
@@ -152,16 +153,12 @@ AUTHENTICATION_BACKENDS = (
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, "static"),
+# )
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 MEDIA_URL = "/media/"
-
-#STATICFILES_DIRS = (
-#    os.path.join(BASE_DIR, "static"),
-#)
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
@@ -207,7 +204,8 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            # "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('172.17.0.3', 6379)],
         },
     },
 }
